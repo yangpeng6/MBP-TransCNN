@@ -1,19 +1,14 @@
 # MBP-TransCNN
-This repo holds code for [A Deep Learning Approach for Automated Segmentation of Magnetic Bright Points in the Solar Photosphere](https://github.com/yangpeng6/MBPs-dataset)
+This repo holds code for [A Deep Learning Approach for Automated Segmentation of Magnetic Bright Points in the Solar Photosphere](https://github.com/yangpeng6/MBP-TransCNN)
 
 ## Usage
 
 ### 1. Download Google pre-trained ViT models
-* [Get models in this link](https://console.cloud.google.com/storage/vit_models/): R50-ViT-B_16, ViT-B_16, ViT-L_16...
-```bash
-wget https://storage.googleapis.com/vit_models/imagenet21k/{MODEL_NAME}.npz &&
-mkdir ../model/vit_checkpoint/imagenet21k &&
-mv {MODEL_NAME}.npz ../model/vit_checkpoint/imagenet21k/{MODEL_NAME}.npz
-```
+* Please access the following link to obtain the models: (https://drive.google.com/drive/folders/1susnn0cs_a1W8QTMGQUpieQMzkDdlEX8?usp=sharing). Download the models and copy them to the "model" folder.
 
 ### 2. Prepare data
 
-Please go to ["./datasets/README.md"](datasets_n/README.md) for details, or please send an Email to jienengchen01 AT gmail.com to request the preprocessed data. If you would like to use the preprocessed data, please use it for research purposes and do not redistribute it.
+Please go to ["./datasets/README.md"](datasets_n/README.md) for details.You can download the training and testing datasets from the following link: (https://drive.google.com/drive/folders/1KPda-LbK4u8I5ya_szdvXhnPZoIM9wVp?usp=sharing).
 
 ### 3. Environment
 
@@ -30,7 +25,8 @@ CUDA_VISIBLE_DEVICES=0 python train.py --dataset MBP --vit_name R50-ViT-B_16
 - Run the test script on MBP dataset.
 
 ```bash
-python test.py --dataset MBP --vit_name R50-ViT-B_16
+python test.py --dataset MBP --vit_name ./model/TU_pretrain_R50-ViT-B_16_skip3_epo100_bs1_640/epoch_99.pth
+```
 ```
 
 ## Reference
